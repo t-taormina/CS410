@@ -20,7 +20,12 @@ export enum Op {
   /**
    * Division.
    */
-  Div
+  Div,
+
+  /**
+   * Modular Division.
+   */
+  Mod
 }
 
 /**
@@ -110,6 +115,15 @@ export class Calculator {
     }
   }
 
+  squareRoot(): void {
+    if (this.overwrite) {
+      this.lcd = '0';
+      this.overwrite = false;
+    } else if (this.lcd !== '0' || this.lcd.charAt(0) !== '-') { // don't negate '0'
+      this.lcd = Math.sqrt(parseFloat(this.lcd)).toString();
+    }
+  }
+
   /**
    * Input a binary operator. If there is a pending operation whose result has
    * not yet been displayed, update the screen to display that result. For
@@ -127,6 +141,7 @@ export class Calculator {
         case Op.Sub: this.lcd = (this.arg - parseFloat(this.lcd)).toString(); break;
         case Op.Mul: this.lcd = (this.arg * parseFloat(this.lcd)).toString(); break;
         case Op.Div: this.lcd = (this.arg / parseFloat(this.lcd)).toString(); break;
+        case Op.Mod: this.lcd = (this.arg % parseFloat(this.lcd)).toString(); break;
       }
       this.lastOp = o;
       this.arg = parseFloat(this.lcd);
@@ -165,6 +180,12 @@ export class Calculator {
           this.lcd = (parseFloat(this.lcd) / this.arg).toString();
         else
           this.lcd = (this.arg / parseFloat(this.lcd)).toString();
+        break;
+      case Op.Mod:
+        if (this.repeat)
+          this.lcd = (parseFloat(this.lcd) % this.arg).toString();
+        else
+          this.lcd = (this.arg % parseFloat(this.lcd)).toString();
         break;
     }
 
