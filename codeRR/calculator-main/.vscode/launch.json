@@ -4,7 +4,7 @@
     {
       "name": "Debug in Chrome",
       "preLaunchTask": "npm: build",
-      "type": "pwa-chrome",
+      "type": "chrome",
       "request": "launch",
       "file": "${workspaceFolder}/build/index.html",
       "outFiles": [
@@ -14,7 +14,7 @@
     },
     {
       "name": "Debug in Edge",
-      "type": "pwa-msedge",
+      "type": "msedge",
       "preLaunchTask": "npm: build",
       "request": "launch",
       "file": "${workspaceFolder}/build/index.html",

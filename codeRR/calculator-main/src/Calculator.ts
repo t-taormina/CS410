@@ -119,7 +119,7 @@ export class Calculator {
     if (this.overwrite) {
       this.lcd = '0';
       this.overwrite = false;
-    } else if (this.lcd !== '0' || this.lcd.charAt(0) !== '-') { // don't negate '0'
+    } else {
       this.lcd = Math.sqrt(parseFloat(this.lcd)).toString();
     }
   }
