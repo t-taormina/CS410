@@ -119,10 +119,7 @@ export class Calculator {
     if (this.overwrite) {
       this.lcd = '0';
       this.overwrite = false;
-      /*
-      * Don't take the square root of 0 or a negative number
-      */
-    } else if (this.lcd !== '0' || this.lcd.charAt(0) !== '-') {
+    } else {
       this.lcd = Math.sqrt(parseFloat(this.lcd)).toString();
     }
   }
