@@ -1,0 +1,26 @@
+Tyler Taormina - taormina@pdx.edu
+
+Plan for Refactor of Robosnake (sorry if you use line wrapping and the text format gets all weird!)
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+To explain this refactor I think it will be helpful to first clearly state what the all changes are and then how they
+will effect GameRunner.ts and Agent.ts. This may be more for me than it is for whoever is reading the code,
+but it should be helpful all the same. The change that I want to make is to introduce an interface for the Agent.
+This interface will have a number of optional data types that can or can not be used by a player and it will also 
+have one mandatory function that must be implemented. This function will return a motion and it is the only 
+part of the interface that the game will interact with. I think this will work since it will give players 
+complete freedom to choose what data types they would like to make use of so long as they implement the 'getMotion' 
+function appropriately. To make this work a few things will have to change. For one, I think it might be helpful
+to create a 'Player' class. The current 'Player' type will be changed to 'PlayerType' and it will be one of
+the members of the 'Player' class. The 'Player' class will also hold an instance of the 'AgentInterface'. I think 
+it may also be helpful for a 'Player' object to contain a 'SnakeState' since this will help to cut down on the amount
+of parameters that are passed to the 'step' function. This would require an indepth refactor of the 'step' function though 
+so I may first try and increase the parameters of 'step' to include instances of 'Player' objects. Creating 'Player' objects 
+is also be something that requires changes. For this, I think a function will replace the 'initializeAgent' call and instead 
+be 'initializePlayer' and it will return a 'Player' instance. This instance will be filled using a match statement much like 
+the one that is currently used to call the Agents. This is the key part since this is where the players will input their 
+personal code. The idea is all the should need to do is implement an instance of the 'AgentInterface' type. I think this 
+will work and I really like the idea of optional data members. In the future, say a person required another data structure 
+or variable in order for their implementation to be successful; it could easily be added without affecting other players. 
+The only thing we'd need to do is send out a update to all interested players about the changes to the interface. It'd 
+be up to them to decide whether or not they want to make use of the update. Please let me know your thoughts! Thanks

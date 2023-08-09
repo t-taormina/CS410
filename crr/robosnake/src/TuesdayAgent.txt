@@ -1,0 +1,21 @@
+import { LocalDate, DayOfWeek, Clock } from "@js-joda/core";
+import { AgentInterface } from "./AgentType";
+import { Motion, Player } from "./Agent";
+import { ScreenPart } from "./GameRunner";
+
+
+const tuesdayAgent: AgentInterface = ({
+    getMotion(p: Player, s: ScreenPart): Motion {
+        let motion: Motion;
+        const c: Clock = Clock.systemDefaultZone();
+        const l: LocalDate = LocalDate.now(c);
+
+        const d: DayOfWeek = l.dayOfWeek();
+        if (d.compareTo(DayOfWeek.TUESDAY) == 0){
+            motion = "up";
+        } else {
+            motion = "down";
+        }
+        return motion;
+    }
+})

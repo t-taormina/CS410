@@ -1,0 +1,28 @@
+{
+  "private": true,
+  "devDependencies": {
+    "@js-joda/core": "^5.5.3",
+    "@typescript-eslint/eslint-plugin": "^6.1.0",
+    "@typescript-eslint/parser": "^6.1.0",
+    "babel-plugin-syntax-dynamic-import": "^6.18.0",
+    "copy-webpack-plugin": "^11.0.0",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "8.8.0",
+    "rimraf": "^5.0.1",
+    "terser-webpack-plugin": "^5.3.9",
+    "ts-loader": "^9.4.4",
+    "ts-webpack": "^1.0.0",
+    "typedoc": "^0.24.8",
+    "typescript": "^5.1.6",
+    "webpack": "^5.88.2",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "docs": "typedoc",
+    "build": "webpack",
+    "clean": "rimraf build docs",
+    "clean-deps": "rimraf build docs node_modules"
+  }
+}
