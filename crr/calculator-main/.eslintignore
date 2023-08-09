@@ -1,8 +1,0 @@
-.*ignore
-package-lock.json
-node_modules
-build
-docs
-**/*.test.*
-**/*.js
-**/*.json
