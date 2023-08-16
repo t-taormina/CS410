@@ -86,20 +86,20 @@ export function run(stepTime: number, newApplesEachStep: number, screen: GameScr
   const aD: Agent = initializePlayerAgent("D");
 
   // player initial positions
-  const a = new SnakeState(0,0);
-  const b = new SnakeState(screen.length - 1, 0);
-  const c = new SnakeState(0, screen.length - 1);
-  const d = new SnakeState(screen.length - 1, screen.length - 1);
+  const sA = new SnakeState(0,0);
+  const sB = new SnakeState(screen.length - 1, 0);
+  const sC = new SnakeState(0, screen.length - 1);
+  const sD = new SnakeState(screen.length - 1, screen.length - 1);
 
   // draw starting screen
-  screen[a.y][a.x] = "A";
-  screen[b.y][b.x] = "B";
-  screen[c.y][c.x] = "C";
-  screen[d.y][d.x] = "D";
+  screen[sA.y][sA.x] = "A";
+  screen[sB.y][sB.x] = "B";
+  screen[sC.y][sC.x] = "C";
+  screen[sD.y][sD.x] = "D";
   draw(screen);
 
   // this will wait for stepTime milliseconds and then call step with these arguments
-  scheduleNextUpdate(stepTime, () => step(stepTime, newApplesEachStep, screen, a, b, c, d, aA, aB, aC, aD));
+  scheduleNextUpdate(stepTime, () => step(stepTime, newApplesEachStep, screen, sA, sB, sC, sD, aA, aB, aC, aD));
   // the "() =>" part is important!
   // without it, step will get called immediately instead of waiting
 }
