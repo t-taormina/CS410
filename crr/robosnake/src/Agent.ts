@@ -1,12 +1,15 @@
 import { ScreenPart } from "./GameRunner";
-import { AgentA, AgentB, AgentC, AgentD } from "./PlayerAgents";
+import { AgentA } from "./RightAgent";
+import { AgentB } from "./TuesdayAgent";
+import { AgentC } from "./CyclesAgent";
+import { AgentD } from "./StairAgent";
 
 export type Player = "A" | "B" | "C" | "D";
 
 export type Motion = "up" | "down" | "left" | "right";
 
 export interface Agent{
-  move(screenPart: ScreenPart): Motion;
+  agent(screenPart: ScreenPart): Motion;
 }
 
 export function initializePlayerAgent(player: Player): Agent{

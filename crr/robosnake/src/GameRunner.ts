@@ -138,25 +138,25 @@ export function step(
 
   // players take turns in order: A -> B -> C -> D -> A -> B -> C -> D -> ...
   if (!snakeA.lost) {
-    const temp  = locationAfterMotion(agentA.move(getScreenPart(screen, snakeA)), snakeA);
+    const temp  = locationAfterMotion(agentA.agent(getScreenPart(screen, snakeA)), snakeA);
     if (!outOfBounds(temp, screen)) makeMove(snakeA, screen, temp, "A");
     else snakeA.lost = true;
   }
 
   if (!snakeB.lost) {
-    const temp  = locationAfterMotion(agentB.move(getScreenPart(screen, snakeB)), snakeB);
+    const temp  = locationAfterMotion(agentB.agent(getScreenPart(screen, snakeB)), snakeB);
     if (!outOfBounds(temp, screen)) makeMove(snakeB, screen, temp, "B");
     else snakeB.lost = true;
   }
 
   if (!snakeC.lost) {
-    const temp  = locationAfterMotion(agentC.move(getScreenPart(screen, snakeC)), snakeC);
+    const temp  = locationAfterMotion(agentC.agent(getScreenPart(screen, snakeC)), snakeC);
     if (!outOfBounds(temp, screen)) makeMove(snakeC, screen, temp, "C");
     else snakeC.lost = true;
   }
 
   if (!snakeD.lost) {
-    const temp  = locationAfterMotion(agentD.move(getScreenPart(screen, snakeD)), snakeD);
+    const temp  = locationAfterMotion(agentD.agent(getScreenPart(screen, snakeD)), snakeD);
     if (!outOfBounds(temp, screen)) makeMove(snakeD, screen, temp, "D");
     else snakeD.lost = true;
   }

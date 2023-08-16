@@ -1,14 +1,9 @@
 import { Agent, Motion} from "./Agent";
 import { ScreenPart, MaybeCell} from "./GameRunner";
 
-export class AgentA implements Agent {
-  move(screenPart: ScreenPart): Motion {
-    return "down";
-  }
-}
 
-export class AgentB implements Agent {
-  move(screenPart: ScreenPart): Motion {
+export class AgentR implements Agent {
+  agent(screenPart: ScreenPart): Motion {
     return this.randomMotion(screenPart);
   }
 
@@ -44,12 +39,12 @@ export class AgentB implements Agent {
   }
 }
 
-export class AgentC implements Agent {
+export class AgentM implements Agent {
   // C uses these moves in order, repeatedly
   private Cycle: Motion[] = ["up", "up", "right", "down", "right"];
   private Index: number = 0;
 
-  move(screenPart: ScreenPart): Motion {
+  agent(screenPart: ScreenPart): Motion {
     const m: Motion = this.Cycle[this.Index];
     this.Index++;
     this.Index = this.Index % this.Cycle.length;
@@ -57,8 +52,8 @@ export class AgentC implements Agent {
   }
 }
 
-export class AgentD implements Agent {
-  move(screenPart: ScreenPart): Motion {
+export class AgentL implements Agent {
+  agent(screenPart: ScreenPart): Motion {
     for (let i = 0; i < 5; i++) {
       for (let j = 0; j < 5; j++) {
         if (screenPart[j][i] == "apple") {
