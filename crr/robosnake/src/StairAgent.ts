@@ -1,7 +1,10 @@
 import { Agent, Motion} from "./Agent";
 import { ScreenPart } from "./GameRunner";
 
-
+/**
+ * Agent that alternates increasing amounts of steps going either "up" or "left" making use of 
+ * members and methods
+ */
 export class AgentD implements Agent {
   lastMotion: Motion ;
   stepCounter: number ;

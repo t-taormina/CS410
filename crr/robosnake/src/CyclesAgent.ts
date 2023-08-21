@@ -1,7 +1,9 @@
 import { Agent, Motion} from "./Agent";
 import { ScreenPart } from "./GameRunner";
 
-
+/**
+ * Agent that makes use of a member Motion list to decide its returned Motion 
+ */
 export class AgentC implements Agent {
   index: number ;
   motions: Motion[] = ["up", "up", "right", "down", "right"];

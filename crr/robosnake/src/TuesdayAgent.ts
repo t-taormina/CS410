@@ -3,6 +3,9 @@ import { Agent, Motion} from "./Agent";
 import { ScreenPart } from "./GameRunner";
 
 
+/**
+ * Agent that imports an external library and obtains motions based on the current day of the week 
+ */
 export class AgentB implements Agent {
     agent(screenPart: ScreenPart): Motion {
         return this.getMotion(screenPart);
